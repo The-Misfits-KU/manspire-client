@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -6,12 +8,6 @@ import Navbar from "@/components/Navbar";
 import { HuddleClient, HuddleProvider } from "@huddle01/react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Manspire - Your Anonymous Platform for Professional Help",
-  description:
-    "Get professional help anonymously from the comfort of your home. Manspire is a platform that connects you with professionals who can help you with your mental health.",
-};
 
 const huddleClient = new HuddleClient({
   projectId: "zMQHa6hH5hGrxfwYZp7z8I-1lWScI7UA",
