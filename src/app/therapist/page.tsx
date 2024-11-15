@@ -3,6 +3,7 @@ import { Phone } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const therapists = [
   {
@@ -52,19 +53,16 @@ export default function TherapyHome() {
       <ScrollArea className="w-full whitespace-nowrap rounded-md border">
         <div className="flex w-max space-x-4 p-4">
           {therapists.map((therapist, index) => (
-            <Card key={index} className="w-[300px] flex-none">
-              <CardContent className="p-4">
-                <div className="flex items-start space-x-4">
-                  <img
-                    src={therapist.image}
-                    alt={therapist.name}
-                    className="rounded-full w-16 h-16 object-cover flex-shrink-0"
-                  />
-                  <div className="space-y-2 flex-grow">
-                    <h3 className="font-bold">{therapist.name}</h3>
-                    <p className="text-sm text-muted-foreground">{therapist.profession}</p>
-                    <p className="text-sm">{therapist.intro}</p>
-                  </div>
+            <Card key={index} className="w-[250px] flex-none">
+              <CardContent className="p-4 flex flex-col items-center">
+                <Avatar className="w-24 h-24 mb-4">
+                  <AvatarImage src={therapist.image} alt={therapist.name} />
+                  <AvatarFallback>{therapist.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                </Avatar>
+                <div className="text-center">
+                  <h3 className="font-bold">{therapist.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-2">{therapist.profession}</p>
+                  <p className="text-sm text-wrap">{therapist.intro}</p>
                 </div>
               </CardContent>
               <CardFooter>
