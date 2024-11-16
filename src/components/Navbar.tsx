@@ -2,13 +2,10 @@
 import { client } from "@/app/client";
 import Link from "next/link";
 import { ConnectButton, lightTheme, useActiveAccount } from "thirdweb/react";
-import Image from "next/image";
-import thirdwebIcon from "@public/thirdweb.svg";
+
 import { Shield } from "lucide-react";
 
 const Navbar = () => {
-  const account = useActiveAccount();
-
   return (
     <div className="flex flex-col">
       <header className="px-4 lg:px-6 h-14 flex items-center">
